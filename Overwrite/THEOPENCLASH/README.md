@@ -7,6 +7,7 @@
 | 分类目录 | 包含配置数 | 说明 |
 | :--- | :--- | :--- |
 | 📁 **[General_Config/666OS](./General_Config/666OS/README.md)** | 2 个 | [点击浏览详细列表](./General_Config/666OS/README.md) |
+| 📁 **[General_Config/AIsouler](./General_Config/AIsouler/README.md)** | 1 个 | [点击浏览详细列表](./General_Config/AIsouler/README.md) |
 | 📁 **[General_Config/ClashConnectRules](./General_Config/ClashConnectRules/README.md)** | 1 个 | [点击浏览详细列表](./General_Config/ClashConnectRules/README.md) |
 | 📁 **[General_Config/HenryChiao](./General_Config/HenryChiao/README.md)** | 3 个 | [点击浏览详细列表](./General_Config/HenryChiao/README.md) |
 | 📁 **[General_Config/Kerronex](./General_Config/Kerronex/README.md)** | 1 个 | [点击浏览详细列表](./General_Config/Kerronex/README.md) |
@@ -17,6 +18,7 @@
 | 📁 **[General_Config/SHICHUNHUI88](./General_Config/SHICHUNHUI88/README.md)** | 1 个 | [点击浏览详细列表](./General_Config/SHICHUNHUI88/README.md) |
 | 📁 **[General_Config/Seven1echo](./General_Config/Seven1echo/README.md)** | 2 个 | [点击浏览详细列表](./General_Config/Seven1echo/README.md) |
 | 📁 **[General_Config/ameyukisora](./General_Config/ameyukisora/README.md)** | 1 个 | [点击浏览详细列表](./General_Config/ameyukisora/README.md) |
+| 📁 **[General_Config/bgpeer](./General_Config/bgpeer/README.md)** | 1 个 | [点击浏览详细列表](./General_Config/bgpeer/README.md) |
 | 📁 **[General_Config/echs-top](./General_Config/echs-top/README.md)** | 1 个 | [点击浏览详细列表](./General_Config/echs-top/README.md) |
 | 📁 **[General_Config/fufu](./General_Config/fufu/README.md)** | 1 个 | [点击浏览详细列表](./General_Config/fufu/README.md) |
 | 📁 **[General_Config/iKeLee](./General_Config/iKeLee/README.md)** | 2 个 | [点击浏览详细列表](./General_Config/iKeLee/README.md) |
