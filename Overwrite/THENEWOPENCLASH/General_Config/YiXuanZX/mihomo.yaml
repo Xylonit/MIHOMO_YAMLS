@@ -1,6 +1,6 @@
-# OpenClash 覆写模块 - rule-set_config.yaml
+# OpenClash 覆写模块 - mihomo.yaml
 # 生成日期：2026-06-28
-# 源文件：https://raw.githubusercontent.com/Xylonit/MIHOMO_YAMLS/main/THEYAMLS/Official_Examples/Metacubex/rule-set_config.yaml
+# 源文件：https://raw.githubusercontent.com/Xylonit/MIHOMO_YAMLS/main/THEYAMLS/General_Config/YiXuanZX/mihomo.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
 # 本文件仅包含 [YAML] 块覆写内容，不含任何 [General] 插件设置。
@@ -84,25 +84,19 @@
 #
 # proxy-providers:
 #   provider1:
+#     header:
+#       User-Agent:
+#       - clash-verge/v2.5.0
 #     health-check:
 #       enable: true
 #       interval: 300
+#       lazy: false
 #       url: https://www.gstatic.com/generate_204
 #     interval: 86400
-#     override:
-#       additional-prefix: '[provider1]'
+#     path: ./proxy_providers/provider1.yaml
+#     proxy: DIRECT
 #     type: http
-#     url: ''
-#   provider2:
-#     health-check:
-#       enable: true
-#       interval: 300
-#       url: https://www.gstatic.com/generate_204
-#     interval: 86400
-#     override:
-#       additional-prefix: '[provider2]'
-#     type: http
-#     url: ''
+#     url: 此处填入订阅
 
 # ==========================================================
 # proxy-groups（从源文件直接提取）
@@ -113,200 +107,75 @@
 # ==========================================================
 #
 # proxy-groups:
-# - name: 默认
-#   proxies:
-#   - 自动选择
-#   - 直连
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   type: select
-# - name: Google
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - name: Telegram
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - name: Twitter
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - name: 哔哩哔哩
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - name: 巴哈姆特
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - name: YouTube
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - name: NETFLIX
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - name: Spotify
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - name: Github
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - name: 国内
-#   proxies:
-#   - 直连
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   type: select
-# - name: 其他
-#   proxies:
-#   - 默认
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - 直连
-#   type: select
-# - exclude-type: direct
-#   filter: (?i)港|hk|hongkong|hong kong
+# - filter: (?i)香港|hk
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
 #   include-all: true
+#   interval: 300
+#   lazy: false
 #   name: 香港
 #   type: select
-# - exclude-type: direct
-#   filter: (?i)台|tw|taiwan
+#   url: https://www.gstatic.com/generate_204
+# - filter: (?i)新加坡|sg
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
 #   include-all: true
-#   name: 台湾
-#   type: select
-# - exclude-type: direct
-#   filter: (?i)日|jp|japan
-#   include-all: true
-#   name: 日本
-#   type: select
-# - exclude-type: direct
-#   filter: (?i)美|us|unitedstates|united states
-#   include-all: true
-#   name: 美国
-#   type: select
-# - exclude-type: direct
-#   filter: (?i)(新|sg|singapore)
-#   include-all: true
+#   interval: 300
+#   lazy: false
 #   name: 新加坡
 #   type: select
-# - exclude-type: direct
-#   filter: (?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*
+#   url: https://www.gstatic.com/generate_204
+# - filter: (?i)日本|jp
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
 #   include-all: true
-#   name: 其它地区
+#   interval: 300
+#   lazy: false
+#   name: 日本
 #   type: select
-# - exclude-type: direct
+#   url: https://www.gstatic.com/generate_204
+# - filter: (?i)美国|us
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
 #   include-all: true
-#   name: 全部节点
+#   interval: 300
+#   lazy: false
+#   name: 美国
 #   type: select
-# - exclude-type: direct
+#   url: https://www.gstatic.com/generate_204
+# - exclude-filter: (?i)剩余|到期|香港|hk|新加坡|sg|日本|jp|美国|us
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Server.png
 #   include-all: true
-#   name: 自动选择
-#   tolerance: 10
-#   type: url-test
+#   interval: 300
+#   lazy: false
+#   name: 其他
+#   type: select
+#   url: https://www.gstatic.com/generate_204
+# - default-selected: 香港
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+#   interval: 300
+#   lazy: false
+#   name: 代理
+#   proxies: &id001
+#   - 香港
+#   - 新加坡
+#   - 日本
+#   - 美国
+#   - 其他
+#   type: select
+#   url: https://www.gstatic.com/generate_204
+# - default-selected: 美国
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+#   interval: 300
+#   lazy: false
+#   name: AI
+#   proxies: *id001
+#   type: select
+#   url: https://www.gstatic.com/generate_204
+# - default-selected: 香港
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram_X.png
+#   interval: 300
+#   lazy: false
+#   name: TG
+#   proxies: *id001
+#   type: select
+#   url: https://www.gstatic.com/generate_204
 
 # ==========================================================
 # rule-providers（从源文件直接提取）
@@ -316,130 +185,108 @@
 # ==========================================================
 #
 # rule-providers:
-#   bahamut_domain:
+#   ai:
+#     behavior: classical
+#     format: yaml
+#     interval: 86400
+#     path: ./rule_providers/ai.yaml
+#     proxy: 代理
+#     type: http
+#     url: https://kelee.one/Tool/Clash/Rule/AI.yaml
+#   china-list:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
+#     path: ./rule_providers/china-list.mrs
+#     proxy: 代理
 #     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bahamut.mrs
-#   bilibili_domain:
+#     url: https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/direct.mrs
+#   cn:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
+#     path: ./rule_providers/cn.mrs
+#     proxy: 代理
 #     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.mrs
-#   biliintl_domain:
-#     behavior: domain
-#     format: mrs
-#     interval: 86400
-#     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/biliintl.mrs
-#   cn_domain:
-#     behavior: domain
-#     format: mrs
-#     interval: 86400
-#     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs
+#     url: https://static-file-global.353355.xyz/rules/cn-additional-list.mrs
 #   cn_ip:
 #     behavior: ipcidr
 #     format: mrs
 #     interval: 86400
+#     path: ./rule_providers/cn_ip.mrs
+#     proxy: 代理
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
-#   ehentai_domain:
+#   gfw:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
+#     path: ./rule_providers/gfw.mrs
+#     proxy: 代理
 #     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ehentai.mrs
-#   geolocation-!cn:
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs
+#   github:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
-#     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs
-#   github_domain:
-#     behavior: domain
-#     format: mrs
-#     interval: 86400
+#     path: ./rule_providers/github.mrs
+#     proxy: 代理
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
-#   google_domain:
+#   google:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
+#     path: ./rule_providers/google.mrs
+#     proxy: 代理
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs
-#   google_ip:
-#     behavior: ipcidr
-#     format: mrs
-#     interval: 86400
-#     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs
-#   netflix_domain:
+#   private:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
-#     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs
-#   netflix_ip:
-#     behavior: ipcidr
-#     format: mrs
-#     interval: 86400
-#     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs
-#   pixiv_domain:
-#     behavior: domain
-#     format: mrs
-#     interval: 86400
-#     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pixiv.mrs
-#   private_domain:
-#     behavior: domain
-#     format: mrs
-#     interval: 86400
+#     path: ./rule_providers/private.mrs
+#     proxy: 代理
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
 #   private_ip:
 #     behavior: ipcidr
 #     format: mrs
 #     interval: 86400
+#     path: ./rule_providers/private_ip.mrs
+#     proxy: 代理
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
-#   spotify_domain:
+#   telegram:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
-#     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs
-#   telegram_domain:
-#     behavior: domain
-#     format: mrs
-#     interval: 86400
+#     path: ./rule_providers/telegram.mrs
+#     proxy: 代理
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
 #   telegram_ip:
 #     behavior: ipcidr
 #     format: mrs
 #     interval: 86400
+#     path: ./rule_providers/telegram_ip.mrs
+#     proxy: 代理
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
-#   twitter_domain:
+#   twitter:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
+#     path: ./rule_providers/twitter.mrs
+#     proxy: 代理
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs
-#   twitter_ip:
-#     behavior: ipcidr
-#     format: mrs
-#     interval: 86400
-#     type: http
-#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs
-#   youtube_domain:
+#   youtube:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
+#     path: ./rule_providers/youtube.mrs
+#     proxy: 代理
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs
 
@@ -455,24 +302,23 @@
 # ==========================================================
 #
 # rules:
-# - RULE-SET,private_ip,直连,no-resolve
-# - RULE-SET,github_domain,Github
-# - RULE-SET,twitter_domain,Twitter
-# - RULE-SET,youtube_domain,YouTube
-# - RULE-SET,google_domain,Google
-# - RULE-SET,telegram_domain,Telegram
-# - RULE-SET,netflix_domain,NETFLIX
-# - RULE-SET,bilibili_domain,哔哩哔哩
-# - RULE-SET,bahamut_domain,巴哈姆特
-# - RULE-SET,spotify_domain,Spotify
-# - RULE-SET,cn_domain,国内
-# - RULE-SET,geolocation-!cn,其他
-# - RULE-SET,google_ip,Google
-# - RULE-SET,netflix_ip,NETFLIX
-# - RULE-SET,telegram_ip,Telegram
-# - RULE-SET,twitter_ip,Twitter
-# - RULE-SET,cn_ip,国内
-# - MATCH,其他
+# - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,youtube)),REJECT
+# - DOMAIN,abyss.cyapi.cn,REJECT
+# - DOMAIN,ad.cyapi.cn,REJECT
+# - DOMAIN,gather.colorfulclouds.net,REJECT
+# - RULE-SET,private,DIRECT
+# - RULE-SET,private_ip,DIRECT,no-resolve
+# - RULE-SET,ai,AI
+# - RULE-SET,telegram,TG
+# - RULE-SET,telegram_ip,TG,no-resolve
+# - RULE-SET,github,代理
+# - RULE-SET,twitter,代理
+# - RULE-SET,youtube,代理
+# - RULE-SET,google,代理
+# - RULE-SET,gfw,代理
+# - RULE-SET,cn,DIRECT
+# - RULE-SET,cn_ip,DIRECT
+# - MATCH,代理
 
 # ==========================================================
 # dns（从源文件直接提取）
@@ -484,16 +330,23 @@
 #
 # dns:
 #   default-nameserver:
-#   - tls://223.5.5.5
-#   - tls://223.6.6.6
+#   - https://223.6.6.6/dns-query
 #   enable: true
 #   enhanced-mode: fake-ip
 #   fake-ip-filter:
-#   - '*'
-#   - +.lan
-#   - +.local
 #   - +.market.xiaomi.com
+#   - lancache.steamcontent.com
+#   - rule-set:private
+#   fake-ip-range: 198.18.0.1/16
 #   ipv6: true
 #   nameserver:
-#   - https://doh.pub/dns-query
+#   - https://dns.alidns.com/dns-query
+#   nameserver-policy:
+#     rule-set:china-list,cn:
+#     - dns.alidns.com
+#     rule-set:gfw:
+#     - https://dns.google/dns-query#代理
+#     rule-set:private:
+#     - system
+#   proxy-server-nameserver:
 #   - https://dns.alidns.com/dns-query
