@@ -1,6 +1,6 @@
-# OpenClash 覆写模块 - config.yaml
+# OpenClash 覆写模块 - mihomo.yaml
 # 生成日期：2026-10-02
-# 源文件：https://raw.githubusercontent.com/Xylonit/MIHOMO_YAMLS/main/THEYAMLS/General_Config/liuran001/config.yaml
+# 源文件：https://raw.githubusercontent.com/Xylonit/MIHOMO_YAMLS/main/THEYAMLS/General_Config/Repcz/mihomo.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
 # 本文件仅包含 [YAML] 块覆写内容，不含任何 [General] 插件设置。
@@ -83,21 +83,15 @@
 # ==========================================================
 #
 # proxy-providers:
-#   订阅一:
-#     health-check: &id001
+#   Sub:
+#     health-check:
 #       enable: true
-#       interval: 300
-#       timeout: 1000
-#       tolerance: 100
-#       url: https://cp.cloudflare.com
-#     interval: 3600
+#       interval: 1800
+#       timeout: 5000
+#       url: http://1.1.1.1/generate_204
+#     interval: 86400
 #     type: http
-#     url: https://example.com/airport?type=clashmeta&protocol=shadowsocks&rule=default
-#   订阅二:
-#     health-check: *id001
-#     interval: 3600
-#     type: http
-#     url: https://example.com/api/v1/client/subscribe?token=ilovechina
+#     url: http://your-service-provider
 
 # ==========================================================
 # proxy-groups（从源文件直接提取）
@@ -108,134 +102,42 @@
 # ==========================================================
 #
 # proxy-groups:
-# - name: 节点选择
+# - icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applesafari.png
+#   name: Proxy
 #   proxies:
-#   - 全部节点
-#   - 自动选择
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - DIRECT
+#   - Fallback
 #   type: select
-# - name: dns
-#   proxies: &id001
-#   - 节点选择
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
-#   - DIRECT
-#   type: select
-# - name: 广告拦截
+#   use:
+#   - Sub
+# - icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
+#   name: AI
 #   proxies:
-#   - REJECT
-#   - DIRECT
-#   - 节点选择
+#   - Proxy
+#   - Fallback
 #   type: select
-# - name: 境外AI
-#   proxies: *id001
-#   type: select
-# - name: Apple
-#   proxies: *id001
-#   type: select
-# - name: Google
-#   proxies: *id001
-#   type: select
-# - name: Telegram
-#   proxies: *id001
-#   type: select
-# - name: Twitter
-#   proxies: *id001
-#   type: select
-# - name: Pixiv
-#   proxies: *id001
-#   type: select
-# - name: ehentai
-#   proxies: *id001
-#   type: select
-# - name: 巴哈姆特
-#   proxies: *id001
-#   type: select
-# - name: YouTube
-#   proxies: *id001
-#   type: select
-# - name: NETFLIX
-#   proxies: *id001
-#   type: select
-# - name: TikTok
-#   proxies: *id001
-#   type: select
-# - name: Spotify
-#   proxies: *id001
-#   type: select
-# - name: Github
-#   proxies: *id001
-#   type: select
-# - name: Steam
-#   proxies: *id001
-#   type: select
-# - name: OneDrive
-#   proxies: *id001
-#   type: select
-# - name: 微软服务
-#   proxies: *id001
-#   type: select
-# - name: 国内
+#   use:
+#   - Sub
+# - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+#   name: Telegram
 #   proxies:
-#   - DIRECT
-#   - 节点选择
-#   - 香港
-#   - 台湾
-#   - 日本
-#   - 新加坡
-#   - 美国
-#   - 其它地区
-#   - 全部节点
-#   - 自动选择
+#   - Proxy
+#   - Fallback
 #   type: select
-# - name: 其他
-#   proxies: *id001
+#   use:
+#   - Sub
+# - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
+#   name: Fallback
+#   type: fallback
+#   use:
+#   - Sub
+# - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+#   name: Final
+#   proxies:
+#   - Proxy
+#   - Fallback
 #   type: select
-# - filter: (?i)港|hk|hongkong|hong kong
-#   name: 香港
-#   type: url-test
-#   use: &id002
-#   - 订阅一
-#   - 订阅二
-# - filter: (?i)台|tw|taiwan
-#   name: 台湾
-#   type: url-test
-#   use: *id002
-# - filter: (?i)日本|jp|japan
-#   name: 日本
-#   type: url-test
-#   use: *id002
-# - filter: (?i)美|us|unitedstates|united states
-#   name: 美国
-#   type: url-test
-#   use: *id002
-# - filter: (?i)(新|sg|singapore)
-#   name: 新加坡
-#   type: url-test
-#   use: *id002
-# - filter: (?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*
-#   name: 其它地区
-#   type: url-test
-#   use: *id002
-# - name: 全部节点
-#   type: url-test
-#   use: *id002
-# - name: 自动选择
-#   tolerance: 2
-#   type: url-test
-#   use: *id002
+#   use:
+#   - Sub
 
 # ==========================================================
 # rule-providers（从源文件直接提取）
@@ -245,13 +147,66 @@
 # ==========================================================
 #
 # rule-providers:
-#   AWAvenue-Ads:
-#     behavior: domain
-#     format: yaml
-#     interval: 600
-#     path: ./rule_provider/AWAvenue-Ads.yaml
+#   AI:
+#     behavior: classical
+#     format: text
+#     interval: 86400
 #     type: http
-#     url: https://ghfast.top/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/refs/heads/main/Filters/AWAvenue-Ads-Rule-Clash-Classical.yaml
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/AI.list
+#   Direct:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Direct.list
+#   Github:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Github.list
+#   Google:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Google.list
+#   Lan:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Lan.list
+#   Microsoft:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Microsoft.list
+#   Proxy:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Proxy.list
+#   Reject:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Reject.list
+#   Telegram:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Telegram.list
+#   Twitter:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Twitter.list
 
 # ==========================================================
 # rules（从源文件直接提取）
@@ -265,39 +220,18 @@
 # ==========================================================
 #
 # rules:
-# - RULE-SET,AWAvenue-Ads,广告拦截
-# - GEOSITE,category-scholar-!cn,境外AI
-# - GEOSITE,apple,Apple
-# - GEOSITE,apple-cn,Apple
-# - GEOSITE,ehentai,ehentai
-# - GEOSITE,github,Github
-# - GEOSITE,twitter,Twitter
-# - GEOSITE,youtube,YouTube
-# - GEOSITE,google,Google
-# - GEOSITE,google-cn,Google
-# - GEOSITE,telegram,Telegram
-# - GEOSITE,netflix,NETFLIX
-# - GEOSITE,tiktok,TikTok
-# - GEOSITE,bahamut,巴哈姆特
-# - GEOSITE,spotify,Spotify
-# - GEOSITE,pixiv,Pixiv
-# - GEOSITE,steam@cn,DIRECT
-# - GEOSITE,steam,Steam
-# - GEOSITE,onedrive,OneDrive
-# - GEOSITE,microsoft,微软服务
-# - GEOSITE,geolocation-!cn,其他
-# - GEOIP,google,Google
-# - GEOIP,netflix,NETFLIX
-# - GEOIP,telegram,Telegram
-# - GEOIP,twitter,Twitter
-# - GEOSITE,CN,国内
-# - GEOIP,CN,国内
-# - IP-CIDR,10.0.0.0/8,DIRECT
-# - IP-CIDR,172.16.0.0/12,DIRECT
-# - IP-CIDR,192.168.0.0/16,DIRECT
-# - IP-CIDR,100.64.0.0/10,DIRECT
-# - IP-CIDR,127.0.0.0/8,DIRECT
-# - MATCH,其他
+# - RULE-SET,Direct,DIRECT
+# - RULE-SET,Reject,REJECT
+# - RULE-SET,AI,AI
+# - RULE-SET,Telegram,Telegram
+# - RULE-SET,Twitter,Fallback
+# - RULE-SET,Google,Fallback
+# - RULE-SET,Github,Fallback
+# - RULE-SET,Microsoft,Fallback
+# - RULE-SET,Proxy,Proxy
+# - RULE-SET,Lan,DIRECT
+# - GEOIP,CN,DIRECT
+# - MATCH,Final
 
 # ==========================================================
 # dns（从源文件直接提取）
@@ -311,29 +245,25 @@
 #   default-nameserver:
 #   - 223.5.5.5
 #   - 119.29.29.29
-#   - 114.114.114.114
-#   - '[2402:4e00::]'
-#   - '[2400:3200::1]'
 #   enable: true
-#   enhanced-mode: redir-host
+#   enhanced-mode: fake-ip
 #   fake-ip-filter:
-#   - '*'
 #   - +.lan
+#   - '*'
 #   - +.local
-#   fake-ip-range: 28.0.0.1/8
-#   ipv6: true
+#   - +.cmpassport.com
+#   - id6.me
+#   - open.e.189.cn
+#   - mdn.open.wo.cn
+#   - opencloud.wostore.cn
+#   - auth.wosms.cn
+#   - +.10099.com.cn
+#   - +.msftconnecttest.com
+#   - +.msftncsi.com
+#   - lancache.steamcontent.com
+#   fake-ip-range: 198.18.0.1/16
+#   ipv6: false
 #   listen: :1053
 #   nameserver:
-#   - tls://8.8.4.4#dns
-#   - tls://1.0.0.1#dns
-#   - tls://[2001:4860:4860::8844]#dns
-#   - tls://[2606:4700:4700::1001]#dns
-#   nameserver-policy:
-#     geosite:!cn,!private:
-#     - tls://dns.google
-#     - tls://cloudflare-dns.com
-#     geosite:cn,private:
-#     - https://doh.pub/dns-query
-#     - https://dns.alidns.com/dns-query
-#   proxy-server-nameserver:
 #   - https://doh.pub/dns-query
+#   - https://dns.alidns.com/dns-query

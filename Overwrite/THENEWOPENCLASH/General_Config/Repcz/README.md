@@ -6,6 +6,7 @@
 | :--- | :--- | :--- |
 | **config.yaml** | Subscribe | [下载/查看](https://raw.githubusercontent.com/Xylonit/MIHOMO_YAMLS/main/Overwrite/THENEWOPENCLASH/General_Config/Repcz/config.yaml) |
 | **config_lite.yaml** | Subscribe | [下载/查看](https://raw.githubusercontent.com/Xylonit/MIHOMO_YAMLS/main/Overwrite/THENEWOPENCLASH/General_Config/Repcz/config_lite.yaml) |
+| **mihomo.yaml** | Sub | [下载/查看](https://raw.githubusercontent.com/Xylonit/MIHOMO_YAMLS/main/Overwrite/THENEWOPENCLASH/General_Config/Repcz/mihomo.yaml) |
 
 ---
 [🔙 返回总览](../README.md)
