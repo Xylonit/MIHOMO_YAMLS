@@ -6,23 +6,23 @@
 
 ## ⚔️ 配置横向对比
 
-| 特性 | `configfull.yaml` | `configfull_lite.yaml` | `configfull_NoAd.yaml` |
+| 特性 | `configfull_NoAd.yaml` | `configfull_lite.yaml` | `configfull.yaml` |
 | :--- | :--- | :--- | :--- |
-| **大小** | 35.4 KB | 18.6 KB | 34.9 KB |
+| **大小** | 34.9 KB | 18.6 KB | 35.4 KB |
 | **混合端口** | 7890 | 7890 | 7890 |
 | **面板地址** | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 |
 | **运行模式** | rule | rule | rule |
 | **TUN** | ✅ | ✅ | ✅ |
-| **策略组** | **62** | **47** | **59** |
-| **规则数** | **96** | **38** | **95** |
+| **策略组** | **59** | **47** | **62** |
+| **规则数** | **95** | **38** | **96** |
 
 ## 📄 配置详情
 
-#### 📝 configfull.yaml
-- **路径**: `configfull.yaml` | **大小**: 35.4 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull.yaml)
+#### 📝 configfull_NoAd.yaml
+- **路径**: `configfull_NoAd.yaml` | **大小**: 34.9 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull_NoAd.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (62个)</summary>
+<summary>🔍 策略组 (59个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -46,7 +46,7 @@
 | 👆 DisneyPlus | `select` |
 | 👆 HBO | `select` |
 | 👆 Primevideo | `select` |
-| ... | 还有 42 个 |
+| ... | 还有 39 个 |
 </details>
 
 #### 📝 configfull_lite.yaml
@@ -80,11 +80,11 @@
 | ... | 还有 27 个 |
 </details>
 
-#### 📝 configfull_NoAd.yaml
-- **路径**: `configfull_NoAd.yaml` | **大小**: 34.9 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull_NoAd.yaml)
+#### 📝 configfull.yaml
+- **路径**: `configfull.yaml` | **大小**: 35.4 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (59个)</summary>
+<summary>🔍 策略组 (62个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -108,5 +108,5 @@
 | 👆 DisneyPlus | `select` |
 | 👆 HBO | `select` |
 | 👆 Primevideo | `select` |
-| ... | 还有 39 个 |
+| ... | 还有 42 个 |
 </details>

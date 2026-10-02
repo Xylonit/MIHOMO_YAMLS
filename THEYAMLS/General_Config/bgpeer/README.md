@@ -6,23 +6,23 @@
 
 ## ⚔️ 配置横向对比
 
-| 特性 | `Clashmi.yaml` | `Clashmi-fx.yaml` |
+| 特性 | `Clashmi-fx.yaml` | `Clashmi.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 19.5 KB | 18.9 KB |
+| **大小** | 19.6 KB | 20.3 KB |
 | **混合端口** | 7893 | 7893 |
 | **面板地址** | 127.0.0.1:9092 | 127.0.0.1:9092 |
 | **运行模式** | rule | rule |
 | **TUN** | ✅ | ✅ |
-| **策略组** | **30** | **30** |
+| **策略组** | **31** | **31** |
 | **规则数** | **34** | **34** |
 
 ## 📄 配置详情
 
-#### 📝 Clashmi.yaml
-- **路径**: `Clashmi.yaml` | **大小**: 19.5 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi.yaml)
+#### 📝 Clashmi-fx.yaml
+- **路径**: `Clashmi-fx.yaml` | **大小**: 19.6 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi-fx.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (30个)</summary>
+<summary>🔍 策略组 (31个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -46,14 +46,14 @@
 | 👆 📕小红书 | `select` |
 | 👆 ⛩️阿里腾讯 | `select` |
 | 👆 🎯直连 | `select` |
-| ... | 还有 10 个 |
+| ... | 还有 11 个 |
 </details>
 
-#### 📝 Clashmi-fx.yaml
-- **路径**: `Clashmi-fx.yaml` | **大小**: 18.9 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi-fx.yaml)
+#### 📝 Clashmi.yaml
+- **路径**: `Clashmi.yaml` | **大小**: 20.3 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (30个)</summary>
+<summary>🔍 策略组 (31个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -77,5 +77,5 @@
 | 👆 📕小红书 | `select` |
 | 👆 ⛩️阿里腾讯 | `select` |
 | 👆 🎯直连 | `select` |
-| ... | 还有 10 个 |
+| ... | 还有 11 个 |
 </details>

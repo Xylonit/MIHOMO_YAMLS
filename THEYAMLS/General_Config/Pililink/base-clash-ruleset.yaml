@@ -10,6 +10,9 @@ proxy-providers:
       url: "https://www.gstatic.com/generate_204"
       interval: 600
 
+# tcp-concurrent 对同一域名解析出的多个 IP 并发拨号，采用最先成功者。
+tcp-concurrent: true
+
 proxy-groups:
   # --- 主选择逻辑 ---
   - { name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇹🇼 台湾节点, 🇪🇺 欧洲节点, 🇹🇷 土耳其节点, 🇮🇳 印度节点, 🇷🇺 俄罗斯节点, 🌏 其他地区, 🎯 全球直连] }
@@ -22,6 +25,9 @@ proxy-groups:
 
   # --- 基础组 ---
   - { name: 🎯 全球直连, type: select, proxies: [DIRECT] }
+
+  # 家庭网络默认 DIRECT；未注入家庭/Tailscale 节点时安全兜底直连。
+  - { name: 🏠 家庭网络, type: select, proxies: [DIRECT] }
 
   # --- 地区自动选择策略组 ---
   
@@ -76,6 +82,14 @@ rule-providers:
     path: ./rule_provider/acl4ssr-local-area-network.yaml
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
     interval: 7200
+
+  private-tracker:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/blackmatrix7-private-tracker-no-resolve.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker_No_Resolve.yaml"
+    interval: 86400
 
   unban:
     type: http
@@ -271,9 +285,32 @@ rule-providers:
 
 # 规则
 rules:
-  - RULE-SET,private,🔒 私有网络
-  - RULE-SET,unban,🎯 全球直连
+  # Tailscale MagicDNS 必须在 myignore 前交给嵌入式 Tailscale 出站解析。
+  - DOMAIN-SUFFIX,ts.net,🏠 家庭网络
+  # 家庭网段必须置于 myignore 之前：myignore 含 100.64.0.0/10，
+  # 这样可在注入家庭节点后由 🏠 家庭网络 接管；未注入时该组内 DIRECT 自动兜底。
+  - IP-CIDR,192.168.31.0/24,🏠 家庭网络,no-resolve
+  - IP-CIDR,192.168.100.0/24,🏠 家庭网络,no-resolve
+  # 100.64.0.0/10 已覆盖 100.65.0.0/24。
+  - IP-CIDR,100.64.0.0/10,🏠 家庭网络,no-resolve
+  # 本仓库维护的覆盖规则优先于所有第三方规则集：Mihomo 从上到下首次命中即停止。
+  # ignore 为明确直连覆盖，ai 为人工智能服务覆盖，proxy 为明确代理覆盖。
   - RULE-SET,myignore,DIRECT
+  - RULE-SET,myai,🤖 人工智能
+  - RULE-SET,myproxy,🪜 代理域名
+  - RULE-SET,private,🔒 私有网络
+  # PT tracker / announce 直连，避免 Fake-IP 或代理影响私有站汇报与 IPv6 announce
+  - RULE-SET,private-tracker,🎯 全球直连
+  # Google Antigravity / Cloud Code API 必须在 UnBan、GoogleCN 等直连规则之前命中 AI 组；
+  # 服务端按真实出口 IP 校验地区，切换为服务支持地区的节点后请在 Clash Verge 中选择该节点。
+  - DOMAIN,daily-cloudcode-pa.sandbox.googleapis.com,🤖 人工智能
+  - DOMAIN-SUFFIX,sandbox.googleapis.com,🤖 人工智能
+  - DOMAIN-SUFFIX,cloudcode-pa.googleapis.com,🤖 人工智能
+  # Google OAuth 登录依赖:ssl.gstatic.com 被 ACL4SSR UnBan 误直连、recaptcha.net 被 google-cn 直连,
+  # 与 accounts.google.com 出口 IP 不一致导致登录点击无反应(XTLS/Xray-core#1618),统一走谷歌服务
+  - DOMAIN-SUFFIX,gstatic.com,🇬 谷歌服务
+  - DOMAIN-SUFFIX,recaptcha.net,🇬 谷歌服务
+  - RULE-SET,unban,🎯 全球直连
   - RULE-SET,ads,🛑 广告拦截
   - RULE-SET,program-ads,🛑 广告拦截
   # 为过滤 P2P 流量(BT 下载)，可添加一条 `DST-PORT` 规则(ShellCrash 会默认开启“只代理常用端口”，可删除此条 `DST-PORT`)
@@ -282,8 +319,6 @@ rules:
   - RULE-SET,google-cn,🎯 全球直连
   - RULE-SET,steam-cn,🎯 全球直连
   - RULE-SET,cn,🇨🇳 直连域名
-  - RULE-SET,myproxy,🪜 代理域名
-  - RULE-SET,myai,🤖 人工智能
   - RULE-SET,ai,🤖 人工智能
   - RULE-SET,microsoft,🪟 微软服务
   - RULE-SET,apple,🍎 苹果服务
@@ -297,5 +332,9 @@ rules:
   - RULE-SET,game-nintendo,🎮 游戏服务
   - RULE-SET,game-xbox,🎮 游戏服务
   - RULE-SET,proxy,🪜 代理域名
+  # ACL4SSR ChinaDomain / ChinaIp 覆盖不全（ChinaIp 仅 IPv4），末尾用 GEOSITE / GEOIP 补漏：
+  # 只接住原本会落到 🐟 漏网之鱼 的流量，不改变前面任何规则的命中。
+  - GEOSITE,cn,🇨🇳 直连域名
   - RULE-SET,cnip,🇨🇳 直连 IP,no-resolve
+  - GEOIP,CN,🇨🇳 直连 IP,no-resolve
   - MATCH,🐟 漏网之鱼
